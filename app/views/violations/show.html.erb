@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Violation:</strong>
+  <%= @violation.violation_id %>
+</p>
+
+<p>
+  <strong>Inspection:</strong>
+  <%= @violation.inspection_id %>
+</p>
+
+<p>
+  <strong>Violation category:</strong>
+  <%= @violation.violation_category %>
+</p>
+
+<p>
+  <strong>Violation date:</strong>
+  <%= @violation.violation_date %>
+</p>
+
+<p>
+  <strong>Violation date closed:</strong>
+  <%= @violation.violation_date_closed %>
+</p>
+
+<p>
+  <strong>Violation type:</strong>
+  <%= @violation.violation_type %>
+</p>
+
+<%= link_to 'Edit', edit_violation_path(@violation) %> |
+<%= link_to 'Back', violations_path %>

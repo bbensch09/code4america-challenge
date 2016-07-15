@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  violation_id: 1
+  inspection_id: 1
+  violation_category: MyString
+  violation_date: MyString
+  violation_date_closed: MyString
+  violation_type: MyString
+
+two:
+  violation_id: 1
+  inspection_id: 1
+  violation_category: MyString
+  violation_date: MyString
+  violation_date_closed: MyString
+  violation_type: MyString

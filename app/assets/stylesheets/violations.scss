@@ -1,0 +1,22 @@
+// Place all the styles related to the violations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  color:blue;
+}
+
+.violations-table{
+  padding: 5 5 5 5px;
+  border: 1px solid gray;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.violations-table tbody tr td, .violations-table thead tr th {
+    padding-left: 20px;
+}
+.violations-table thead {
+  font-size: 1.3em;
+  border: 1px solid gray;
+  background-color: rgba(0,60,128,0.3);
+}

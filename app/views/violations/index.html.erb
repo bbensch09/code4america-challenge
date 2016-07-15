@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<% if Violation.count == 0 %>
+
+<h1>Import Violations CSV </h1>
+<%= form_tag import_violations_path,  multipart: true do %>
+  <%= file_field_tag :file %>
+  <br>
+  <br>
+  <%= submit_tag "Import CSV", class: 'btn btn-primary' %>
+<% end %>
+
+<% end %>
+
+<%= link_to "Analyze Violations", root_path, class: 'btn btn-success' %>
+
+<h1>All Violations - sorted by violation date</h1>
+
+<table class="violations-table">
+  <thead>
+    <tr>
+      <th>Violation</th>
+      <th>Inspection</th>
+      <th>Violation category</th>
+      <th>Violation date</th>
+      <th>Violation date closed</th>
+      <th>Violation type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @violations.each do |violation| %>
+      <tr>
+        <td><%= violation.violation_id %></td>
+        <td><%= violation.inspection_id %></td>
+        <td><%= violation.violation_category %></td>
+        <td><%= violation.violation_date %></td>
+        <td><%= violation.violation_date_closed %></td>
+        <td><%= violation.violation_type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Violation', new_violation_path %>

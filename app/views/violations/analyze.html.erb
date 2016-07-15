@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<% if Violation.count == 0 %>
+
+  <h1>Import Violations </h1>
+  <p>
+    To import data, first download the file found at: <a href="http://forever.codeforamerica.org/fellowship-2015-tech-interview/Violations-2012.csv">
+    http://forever.codeforamerica.org/fellowship-2015-tech-interview/Violations-2012.csv
+    </a>
+  </p>
+  <p>
+    Then attach that file below, and click "Import CSV"
+  </p>
+  <%= form_tag import_violations_path,  multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV", class: 'btn btn-success' %>
+  <% end %>
+
+  <% else %>
+
+<%= button_to "Reset data", reset_data_path, method: :delete, class: 'btn btn-danger' %>
+<br>
+<%= link_to "View all violations", violations_path, class: 'btn btn-primary' %>
+
+<% end %>
+
+
+
+<h1>Violations Analysis</h1>
+
+<table class="violations-table">
+  <thead>
+    <tr>
+      <th>Violation category</th>
+      <th>Count of Violations</th>
+      <th>Earliest Violation</th>
+      <th>Latest Violation</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category %></td>
+        <td><%=  Violation.category_count(category) %></td>
+        <td><%=  Violation.violations_in_category(category).first.violation_date.strftime("%m/%d/%Y at %I:%M%p") %></td>
+        <td><%=  Violation.violations_in_category(category).last.violation_date.strftime("%m/%d/%Y at %I:%M%p") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
