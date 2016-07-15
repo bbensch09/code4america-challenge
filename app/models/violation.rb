@@ -8,7 +8,7 @@ class Violation < ActiveRecord::Base
   end
 
   def self.unique_categories
-    Violation.uniq.pluck(:violation_category)
+    Violation.uniq.pluck(:violation_category).sort{|a,b| a <=> b}
   end
 
   def self.category_count(category)

@@ -43,8 +43,8 @@
       <tr>
         <td><%= category %></td>
         <td><%=  Violation.category_count(category) %></td>
-        <td><%=  Violation.violations_in_category(category).first.violation_date.strftime("%m/%d/%Y at %I:%M%p") %></td>
-        <td><%=  Violation.violations_in_category(category).last.violation_date.strftime("%m/%d/%Y at %I:%M%p") %></td>
+        <td><%=  Violation.violations_in_category(category).first.violation_date.strftime("%m/%d/%Y") %></td>
+        <td><%=  Violation.violations_in_category(category).last.violation_date.strftime("%m/%d/%Y") %></td>
       </tr>
     <% end %>
   </tbody>
