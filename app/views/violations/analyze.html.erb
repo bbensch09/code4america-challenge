@@ -28,6 +28,14 @@
 
 <h1>Violations Analysis</h1>
 
+<% if @categories.count == 0 %>
+
+<h3 class="alert alert-warning">
+  Please import data first.
+</h3>
+
+<% else %>
+
 <table class="violations-table">
   <thead>
     <tr>
@@ -49,3 +57,4 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
